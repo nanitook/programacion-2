@@ -7,10 +7,7 @@ public interface ColaTDA {
 
   void Desacolar();
 
-  int Primero();
-
   boolean ColaVacia();
 
-  void ImprimirCola();
-
+  int Primero();
 }
