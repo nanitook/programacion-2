@@ -1,6 +1,7 @@
 import implementaciones.ColaDinamica;
 import implementaciones.ColaEstatica;
 import interfaces.ColaTDA;
+import metodos.metodoCola;
 
 public class colas {
   public static void main(String[] args) {
@@ -8,14 +9,15 @@ public class colas {
     ColaTDA cola = new ColaDinamica();
     cola.InicializarCola();
 
+    ColaTDA cola2 = new ColaDinamica();
+    cola2.InicializarCola();
+
     cola.Acolar(1);
     cola.Acolar(2);
     cola.Acolar(3);
 
-    System.out.println(cola.Primero());
+    metodoCola.imprimirCola(cola);
 
-    cola.Desacolar();
-
-    System.out.println(cola.Primero());
+    metodoCola.invertirSinPilas(cola);
   }
 }
