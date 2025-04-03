@@ -1,5 +1,7 @@
 import implementaciones.ConjuntoEstatico;
+import interfaces.ColaTDA;
 import interfaces.ConjuntoTDA;
+import metodos.metodoCola;
 import metodos.metodosConjuntos;
 
 public class conjuntos {
@@ -26,10 +28,20 @@ public class conjuntos {
 
     ConjuntoTDA interseccion = metodosConjuntos.Interseccion(c1, c2);
     metodosConjuntos.Imprimir(interseccion);
-    
+
     System.out.println();
 
     ConjuntoTDA diferencia = metodosConjuntos.Diferencia(c1, c2);
     metodosConjuntos.Imprimir(diferencia);
+
+    System.out.println();
+
+    boolean identicos = metodosConjuntos.SonIdenticos(c1, c1);
+    System.out.println(identicos);
+
+    System.out.println();
+
+    ColaTDA cola = metodosConjuntos.CalcularCola(c1);
+    metodoCola.imprimirCola(cola);
   }
 }

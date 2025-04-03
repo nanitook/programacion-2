@@ -1,6 +1,9 @@
 package metodos;
 
+import implementaciones.ColaDinamica;
+import implementaciones.ColaEstatica;
 import implementaciones.ConjuntoEstatico;
+import interfaces.ColaTDA;
 import interfaces.ConjuntoTDA;
 
 public class metodosConjuntos {
@@ -78,6 +81,7 @@ public class metodosConjuntos {
 
     while (!ori.EstaVacia()) {
       int valor = ori.Elegir();
+      System.out.println("En copia" + valor);
       aux.Agregar(valor);
       resultado.Agregar(valor);
       ori.Sacar(valor);
@@ -127,6 +131,48 @@ public class metodosConjuntos {
   }
 
   public static boolean SonIdenticos(ConjuntoTDA a, ConjuntoTDA b) {
-    ConjuntoTDA 
+    ConjuntoTDA copiaA = CopiarConjunto(a);
+    ConjuntoTDA copiaB = CopiarConjunto(b);
+
+    boolean sonIdenticos = true;
+
+    while (!copiaA.EstaVacia()) {
+      int valor = copiaA.Elegir();
+      if (copiaB.Pertenece(valor)) {
+        copiaB.Sacar(valor);
+      }
+      copiaA.Sacar(valor);
+    }
+
+    if (!copiaB.EstaVacia())
+      sonIdenticos = false;
+
+    return sonIdenticos;
+  }
+
+  public static ColaTDA CalcularCola(ConjuntoTDA c) {
+    ColaTDA resultado = new ColaDinamica();
+    resultado.InicializarCola();
+
+    ConjuntoTDA copia = CopiarConjunto(c);
+    // for (int i = 0; i < 6; i++) {
+    while (!copia.EstaVacia()) {
+      int valor = c.Elegir();
+      int calculo = valor;
+      int ultimo = valor;
+      int valor2 = c.Elegir();
+
+      while (valor2 > ultimo) {
+        calculo += valor2;
+        ultimo = valor2;
+        valor2 = c.Elegir();
+      }
+
+      resultado.Acolar(calculo);
+      int aux = copia.Elegir();
+      copia.Sacar(aux);
+    }
+
+    return resultado;
   }
 }
