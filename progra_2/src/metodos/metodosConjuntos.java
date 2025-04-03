@@ -158,12 +158,11 @@ public class metodosConjuntos {
     while (!copia.EstaVacia()) {
       int valor = c.Elegir();
       int calculo = valor;
-      int ultimo = valor;
       int valor2 = c.Elegir();
 
-      while (valor2 > ultimo) {
+      while (valor2 > valor) {
         calculo += valor2;
-        ultimo = valor2;
+        valor = valor2;
         valor2 = c.Elegir();
       }
 
