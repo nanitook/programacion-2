@@ -1,7 +1,6 @@
 package metodos;
 
 import implementaciones.ColaDinamica;
-import implementaciones.ColaEstatica;
 import implementaciones.ConjuntoEstatico;
 import interfaces.ColaTDA;
 import interfaces.ConjuntoTDA;
@@ -81,7 +80,7 @@ public class metodosConjuntos {
 
     while (!ori.EstaVacia()) {
       int valor = ori.Elegir();
-      System.out.println("En copia" + valor);
+      // System.out.println("En copia" + valor);
       aux.Agregar(valor);
       resultado.Agregar(valor);
       ori.Sacar(valor);
